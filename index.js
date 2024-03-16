@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// Nhúng file index.routes.js
+const routesClient = require("./routes/client/index.routes");
+
 const port = 3000;
 
 app.set("views","./views");
@@ -10,17 +13,7 @@ app.get("/",(req,res) =>{
     res.render("./client/pages/home/index");
 })
 
-app.get("/products",(req,res) => {
-    res.render("client/pages/products/index");
-})
-
-app.get("/user", (req, res) => {
-    res.send("Profile User Ly Bao Khanh\nNgay mua hang: 17/03/2024");
-});
-
-app.get("/admin", (req, res) => {
-    res.send("This page belongs to the administrator!!!");
-})
+routesClient(app);
 
 app.listen(port, () => {
     console.log("Successfull!!!");
