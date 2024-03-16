@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/user", (req, res) => {
-    res.render(".././views/client/pages/user/index.pug");
-});
+router.get("", (req, res) => {
+    res.render(".././views/client/pages/products/index");
+})
 
 router.get("/admin", (req, res) => {
-    res.render(".././views/client/pages/admin/index.pug");
+    res.render(".././views/client/pages/admin/index");
 })
 
 router.get("/edit", (req, res) => {
