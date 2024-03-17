@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
+// Viết như này cũng được: const router = express;
 
-router.get("", (req, res) => {
-    res.render(".././views/client/pages/products/index");
-})
+// Nhúng các hàm bên phía product.controller.js vào product.routes.js
+const controller = require("../../controllers/client/product.controller");
 
-router.get("/admin", (req, res) => {
-    res.render(".././views/client/pages/admin/index");
-})
+router.get("", controller.index)
 
-router.get("/edit", (req, res) => {
-    res.send("Edit Product!");
-})
+router.get("/admin", controller.admin)
+
+router.get("/edit", controller.edit)
+
+router.get("/detail",controller.detail)
 
 module.exports = router;
